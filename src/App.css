@@ -13,6 +13,8 @@
 }
 
 .time-input input {
+  background-color: #98cde2;
+  border: solid 2px rgb(97, 135, 161);
   font-size: 30px;
   width: 140px;
   height: 50px;

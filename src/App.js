@@ -77,18 +77,21 @@ class App extends React.Component {
           name="hours"
           onChange={(event) => this.handleinputChange(event)}
           placeholder="hours"
+          data-testid="time-input"
         />
         <input
           type="number"
           name="minutes"
           onChange={(event) => this.handleinputChange(event)}
           placeholder="minutes"
+          data-testid="time-input"
         />
         <input
           type="number"
           name="seconds"
           onChange={(event) => this.handleinputChange(event)}
           placeholder="seconds"
+          data-testid="time-input"
         />
       </div>
       <div className="time-controls">
