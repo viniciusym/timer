@@ -5,7 +5,7 @@ class Timer extends React.Component {
   render() {
     const { time } = this.props;
     return (
-      <h1 className="timer">{ time === "" ? "00:00:00" : time }</h1>
+      <h1 className={time === '00:00:00' ? "finished-timer" : "timer"}>{ time === "" ? "00:00:00" : time }</h1>
     );
   }
 }
