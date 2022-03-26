@@ -14,8 +14,9 @@
 
 .time-input input {
   background-color: #98cde2;
+  color: rgb(68, 65, 63);
   border: solid 2px rgb(97, 135, 161);
-  font-size: 30px;
+  font-size: 36px;
   width: 140px;
   height: 50px;
   text-align: center;
@@ -47,6 +48,11 @@
 .timer {
   font-size: 100px;
   color: rgb(192, 234, 246);
+}
+
+.finished-timer {
+  font-size: 100px;
+  color: rgb(230, 125, 40);
 }
 
 #root {

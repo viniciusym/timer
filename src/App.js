@@ -1,6 +1,7 @@
 import React from 'react';
 import Timer from './components/Timer';
 import './App.css';
+import TimerInputs from './components/TimeInputs';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,6 +18,9 @@ class App extends React.Component {
   }
 
   decreaseTime = () => this.setState((prevState) => ({time: prevState.time - 1}))
+  setFormatedTime = () => this.setState({
+    formatedTime: this.formatTime(this.state.time)
+  })
 
   countdown = (sec) => {
     const secondsInMs = sec * 1000;
@@ -26,9 +30,7 @@ class App extends React.Component {
     })
     let interval = setInterval(() => {
       this.decreaseTime()
-      this.setState({
-        formatedTime: this.formatTime(this.state.time)
-      })
+      this.setFormatedTime()
     }, 1000);
     this.setState({
       intervalId: interval,
@@ -61,9 +63,9 @@ class App extends React.Component {
   }
 
   resumeTimer = (sec) => {
+    this.countdown(sec);
     const { intervalId } = this.state;
     clearInterval(intervalId);
-    this.countdown(sec + 1);
   }
 
   render() {
@@ -71,29 +73,7 @@ class App extends React.Component {
     return (
       <div className="main">
         <Timer time={ formatedTime } />
-      <div className="time-input">
-        <input
-          type="number"
-          name="hours"
-          onChange={(event) => this.handleinputChange(event)}
-          placeholder="hours"
-          data-testid="time-input"
-        />
-        <input
-          type="number"
-          name="minutes"
-          onChange={(event) => this.handleinputChange(event)}
-          placeholder="minutes"
-          data-testid="time-input"
-        />
-        <input
-          type="number"
-          name="seconds"
-          onChange={(event) => this.handleinputChange(event)}
-          placeholder="seconds"
-          data-testid="time-input"
-        />
-      </div>
+        <TimerInputs handleinputChange={ this.handleinputChange } />
       <div className="time-controls">
         <button onClick={() => this.startTimer(hours, minutes, seconds)}>Start</button>
         <button onClick={() => clearInterval(intervalId)}>Pause</button>
