@@ -22,7 +22,7 @@ class App extends React.Component {
     formatedTime: this.formatTime(this.state.time)
   })
 
-  countdown = (sec) => {
+  timer = (sec) => {
     const secondsInMs = sec * 1000;
     this.setState({
       time: sec,
@@ -59,11 +59,11 @@ class App extends React.Component {
     const { intervalId } = this.state;
     clearInterval(intervalId);
     let totalTimerInSec = (Number(hours) * 3600) + (Number(min) * 60) + Number(sec);
-    this.countdown(totalTimerInSec)
+    this.timer(totalTimerInSec)
   }
 
   resumeTimer = (sec) => {
-    this.countdown(sec);
+    this.timer(sec);
     const { intervalId } = this.state;
     clearInterval(intervalId);
   }
