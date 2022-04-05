@@ -58,3 +58,7 @@
 #root {
   background-color: rgb(18, 107, 197);
 }
+
+input:focus::placeholder {
+  color: transparent;
+}
